@@ -1,0 +1,28 @@
+customview page
+
+<% @draft_picks.each do |draft_pick| %>
+    <%= "DraftPick.create(dynasty_team_id:DynastyTeam.where(team_name:"+draft_pick.to_s+").first().id," %><br>
+    <%="year:2019,"%><br>
+    <%="round:1,"%><br>
+    <%="comments:'None')" %><br>
+    <br><br>
+    <%	 @count += 1 %>
+<% end %>
+
+<% @draft_picks.each do |draft_pick| %>
+    <%= "DraftPick.create(dynasty_team_id:DynastyTeam.where(team_name:"+draft_pick.to_s+").first().id," %><br>
+    <%="year:2019,"%><br>
+    <%="round:2,"%><br>
+    <%="comments:'None')" %><br>
+    <br><br>
+    <%	 @count += 1 %>
+<% end %>
+
+<% @draft_picks.each do |draft_pick| %>
+    <%= "DraftPick.create(dynasty_team_id:DynastyTeam.where(team_name:"+draft_pick.to_s+").first().id," %><br>
+    <%="year:2019,"%><br>
+    <%="round:3,"%><br>
+    <%="comments:'None')" %><br>
+    <br><br>
+    <%	 @count += 1 %>
+<% end %>
