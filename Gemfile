@@ -61,7 +61,6 @@ gem 'httparty'
 gem 'searchkick'
 gem 'elasticsearch'
 gem 'will_paginate'
-gem 'pdfjs_viewer-rails'
 group :development do
   gem 'rails_layout'
 end
