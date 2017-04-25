@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-  # has_one :dynasty_team, primary_key: 'player_id', foreign_key: 'player_id'
+  # for elasticsearch searchbox heroku config:set ELASTICSEARCH_URL=`heroku config:get SEARCHBOX_URL`
   has_one :player_contract, primary_key: 'player_id', foreign_key: 'player_id'
   searchkick
 

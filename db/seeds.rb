@@ -23,6 +23,21 @@ players2016['players'].each do |player|
   end
 end
 
+player_array = [768, 2543572, 2543465, 2543646, 2537931, 2552380]
+player_array.each do |player|
+  new_player = HTTParty.get("http://api.fantasy.nfl.com/v1/players/details?playerId="+player.to_s)["players"][0]
+  new_player_obj = Player.new(
+      player_id:new_player['id'],
+      esbid:new_player['esbid'],
+      gsisPlayerId:new_player['gsisPlayerId'],
+      name:new_player['name'],
+      position:new_player['position'],
+      teamAbbr:new_player['teamAbbr'],
+      stats_id:nil)
+  new_player_obj.save
+
+end
+
 # players2015 = HTTParty.get("http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2015&format=json")
 # players2015['players'].each do |player|
 #   if Player.exists?(:player_id => player['id'])
@@ -1125,7 +1140,12 @@ PlayerContract.create(player_id: Player.where(player_id:2537931).first().player_
                       is_top_fourteen:FALSE,
                       current_salary:25)
 #DARIUS JACKSON Rookie nothing
-
+# PlayerContract.create(player_id: Player.where(player_id:2556273).first().player_id,
+#                       dynasty_team_id:DynastyTeam.where(team_name:DAN[:team_name]).first().id,
+#                       contract_type_id:ContractType.where(name:FIRST).first().id,
+#                       first_year: TWENTY_SIXTEEN,
+#                       is_top_fourteen:FALSE,
+#                       current_salary:5)
 #GOAT
 
 #Kamar Aiken
@@ -1433,12 +1453,12 @@ PlayerContract.create(player_id: Player.where(player_id:2505629).first().player_
                       current_salary:18)
 
 #Rueben Randle
-PlayerContract.create(player_id: Player.where(player_id:2533533).first().player_id,
-                      dynasty_team_id:DynastyTeam.where(team_name:DEREK[:team_name]).first().id,
-                      contract_type_id:ContractType.where(name:INITIAL).first().id,
-                      first_year: TWENTY_FOURTEEN,
-                      is_top_fourteen:FALSE,
-                      current_salary:11)
+# PlayerContract.create(player_id: Player.where(player_id:2533533).first().player_id,
+#                       dynasty_team_id:DynastyTeam.where(team_name:DEREK[:team_name]).first().id,
+#                       contract_type_id:ContractType.where(name:INITIAL).first().id,
+#                       first_year: TWENTY_FOURTEEN,
+#                       is_top_fourteen:FALSE,
+#                       current_salary:11)
 #CARDINALS D
 PlayerContract.create(player_id: Player.where(player_id:100026).first().player_id,
                       dynasty_team_id:DynastyTeam.where(team_name:DEREK[:team_name]).first().id,
