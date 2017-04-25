@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   #before_filter :check_session
 
+  @top_bar_dynasty_teams = DynastyTeam.all
   private
 
   helper_method :current_user

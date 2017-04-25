@@ -1,12 +1,17 @@
-<%= form_tag players_path, class: "form-inline", method: :get do %>
+<style>
+  .player-search-bar {padding: 1cm 1cm 1cm 1cm;}
+</style>
+<div class="player-search-bar" align="center">
+  <%= form_tag players_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :query, params[:query], class: "form-control" %>
-<% end %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% if params[:query].present? %>
+        <%= link_to "clear", players_path %>
+    <% end %>
+  <% end %>
+</div><br><br>
 
-<%= submit_tag "Search", class: "btn btn-primary" %>
-<% if params[:query].present? %>
-    <%= link_to "clear", players_path %>
-<% end %>
-<div class="centeredHomePage">
+<div class="centeredHomePage" align="center">
   <% @players.first(10).each do |player| %>
     <%=  player.name %><br>
       <% if player.esbid != nil && player.name != nil %>

@@ -8,12 +8,13 @@
 //    document.body.appendChild(img);
 //  }
 </script>
+<body>
+  <%= form_for(@player, remote: true)  do |f| %>
+      <%= f.text_field :id, autofocus: true, class: 'title-field pull-left' %><br><br>
+      <%= f.submit 'Generate Player Information', :class => 'btn btn-primary' %>
+  <% end %>
 
-<%= form_for(@player, remote: true)  do |f| %>
-    <%= f.text_field :id, autofocus: true, class: 'title-field pull-left' %>
-    <%= f.submit 'Generate Player Information', class: 'btn home-add without-entry' %>
-<% end %>
-
-<div id="your_form_id" class="your_form_id">
-  <!-- form div -->
-</div>
+  <div id="your_form_id" class="your_form_id">
+    <!-- form div -->
+  </div>
+</body>

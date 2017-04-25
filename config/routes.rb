@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  root 'homes#index'
-  resources :teams, only: [:index, :create, :new]
-  resources :weeks, only: [:index, :new, :create, :show]
-  resources :rankings, only: [:index, :new, :create]
+  root 'dynasty_teams#index'
   resources :players, only: [:index, :show, :edit, :update, :create, :new]
   resources :dynasty_teams, only: [:show, :index, :trade]
-  resources :trades, only: [:index, :update, :create]
+  resources :trades, only: [:index, :update, :create, :new]
   match '/customview' => 'players#customview' , via: [:get]
   match '/players/:id/edit' => 'players#update', via: [:get, :post]
   devise_for :users

@@ -78,9 +78,10 @@ class TradesController < ApplicationController
                                        Owner.find_by(id:DynastyTeam.find_by(id: teams_array[0]).owner_id).first_name)
       end
     end
-
-
     redirect_to trades_path
   end
 
+  def new
+
+  end
 end

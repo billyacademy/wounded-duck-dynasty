@@ -40,11 +40,16 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.1)
+    autoprefixer-rails (6.7.7.2)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.11)
+    bootstrap (4.0.0.alpha6)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     builder (3.2.2)
     capybara (2.8.1)
       addressable
@@ -128,6 +133,9 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
+    pdfjs_viewer-rails (0.0.9)
+      rails (> 4.2.0)
+      sass-rails (~> 5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -246,6 +254,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap
   capybara
   coffee-rails (~> 4.2)
   devise
@@ -259,6 +268,7 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   modernizr-rails
+  pdfjs_viewer-rails
   pg (~> 0.18)
   pry-rails
   puma (~> 3.0)

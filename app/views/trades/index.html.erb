@@ -45,7 +45,7 @@
   .col-1{float:left; width:40%;}
   .col-2{float:right; width:40%;}
   .trade-form-body{width:100%;}
-  .trade-form-submit{float:none; text-align:center; width:20%;}
+  .trade-form-submit{float:none; text-align:center; width:20%; padding: 1cm 1cm 1cm 1cm;}
 </style>
 <h1 align="center">Trade Post</h1>
 <div class="col-1">
@@ -74,12 +74,12 @@
                 <%= f.check_box "Team1-DynastyTeam-" + player_contract.dynasty_team_id.to_s + "-" + PlayerContract.model_name + "-" + player_contract.id.to_s %> : <%= player_contract.player.name %><br>
               <% end %>
               <% team.draft_picks.each do |draft_pick| %>
-                  <%= f.check_box "Team1-DynastyTeam-" + draft_pick.dynasty_team_id.to_s + "-" +DraftPick.model_name  + "-" + draft_pick.id.to_s %> :<%=	draft_pick.round.to_s + "." + draft_pick.pick.to_s + ":" + draft_pick.comments  %><br>
+                  <%= f.check_box "Team2-DynastyTeam-"+ draft_pick.dynasty_team_id.to_s + "-"+DraftPick.model_name + "-" + draft_pick.id.to_s  %><%= " : " +	draft_pick.round.to_s + (draft_pick.pick != nil ? "." + draft_pick.pick.to_s : '') +  (draft_pick.comments != 'None' ? + " - " + draft_pick.comments : '') + " - (" + draft_pick.year.to_s + ")"  %><br>
               <% end %>
-              <%= f.label "Amount of Cap to Send (" + @current_year.to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + @current_year.to_s, :style => "width:20%; text-align:center" %>
-              <%= f.label "Amount of Cap to Send (" + (@current_year+1).to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+1).to_s, :style => "width:20%; text-align:center" %>
-              <%= f.label "Amount of Cap to Send (" + (@current_year+2).to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+2).to_s, :style => "width:20%; text-align:center" %>
-              <%= f.label "Amount of Cap to Send (" + (@current_year+3).to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+3).to_s, :style => "width:20%; text-align:center" %>
+              <%= f.label "Cap (" + @current_year.to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + @current_year.to_s, :style => "width:20%; text-align:center" %><br>
+              <%= f.label "Cap (" + (@current_year+1).to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+1).to_s, :style => "width:20%; text-align:center" %><br>
+              <%= f.label "Cap (" + (@current_year+2).to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+2).to_s, :style => "width:20%; text-align:center" %><br>
+              <%= f.label "Cap (" + (@current_year+3).to_s + "):" %> <%= f.text_field "Team1-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+3).to_s, :style => "width:20%; text-align:center" %><br>
             </div>
         <% end %>
       </div>
@@ -94,18 +94,18 @@
                   <%= f.check_box "Team2-DynastyTeam-" + player_contract.dynasty_team_id.to_s + "-" + PlayerContract.model_name + "-" + player_contract.id.to_s %> : <%= player_contract.player.name %><br>
               <% end %>
               <% team.draft_picks.each do |draft_pick| %>
-                  <%= f.check_box "Team2-DynastyTeam-"+ draft_pick.dynasty_team_id.to_s + "-"+DraftPick.model_name + "-" + draft_pick.id.to_s  %> :<%=	draft_pick.round.to_s + "." + draft_pick.pick.to_s + ":" + draft_pick.comments  %><br>
+                  <%= f.check_box "Team2-DynastyTeam-"+ draft_pick.dynasty_team_id.to_s + "-"+DraftPick.model_name + "-" + draft_pick.id.to_s  %><%= " : " +	draft_pick.round.to_s + (draft_pick.pick != nil ? "." + draft_pick.pick.to_s : '') +  (draft_pick.comments != 'None' ? + " - " + draft_pick.comments : '') + " - (" + draft_pick.year.to_s + ")"  %><br>
               <% end %>
-              <%= f.label "Amount of Cap to Send (" + @current_year.to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + @current_year.to_s, :style => "width:20%; text-align:center" %>
-              <%= f.label "Amount of Cap to Send (" + (@current_year+1).to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+1).to_s, :style => "width:20%; text-align:center" %>
-              <%= f.label "Amount of Cap to Send (" + (@current_year+2).to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+2).to_s, :style => "width:20%; text-align:center" %>
-              <%= f.label "Amount of Cap to Send (" + (@current_year+3).to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+3).to_s, :style => "width:20%; text-align:center" %>
+              <%= f.label "Cap (" + @current_year.to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + @current_year.to_s, :style => "width:20%; text-align:center" %><br>
+              <%= f.label "Cap (" + (@current_year+1).to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+1).to_s, :style => "width:20%; text-align:center" %><br>
+              <%= f.label "Cap (" + (@current_year+2).to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+2).to_s, :style => "width:20%; text-align:center" %><br>
+              <%= f.label "Cap (" + (@current_year+3).to_s + "):" %> <%= f.text_field "Team2-DynastyTeam-" + team.id.to_s + "-" + SalaryCapAdjustment.model_name + "-" + (@current_year+3).to_s, :style => "width:20%; text-align:center" %><br>
             </div>
         <% end %>
       </div>
     </div>
 </div>
 <div class="trade-form-submit">
-  <%= f.submit "Submit Trade"%>
+  <%= f.submit "Submit Trade", :class => "btn btn-primary"%>
   <% end %> <!-- end form -->
 </div>
