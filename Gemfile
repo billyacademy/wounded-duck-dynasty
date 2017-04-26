@@ -61,6 +61,7 @@ gem 'httparty'
 gem 'searchkick'
 gem 'elasticsearch'
 gem 'will_paginate'
+gem 'rails_12factor', group: :production
 group :development do
   gem 'rails_layout'
 end
