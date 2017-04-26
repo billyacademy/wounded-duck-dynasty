@@ -24,5 +24,5 @@ Things you may want to cover:
 
 * ...
 
-# hundo_league
+# wounded_duck_dynasty
 
